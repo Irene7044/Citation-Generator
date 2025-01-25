@@ -4,10 +4,12 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include "Button.h"
+#include "enterPage.h"
 
 class WebsiteInput {
 private:
     Font font;
+    Button* enter;
 
     // Text inputs for citation fields
     String firstNameInput;
@@ -280,12 +282,25 @@ public:
         float scaleY = (1.0f * windowSize.y) / textureSize.y;
         background.setScale(scaleX, scaleY); // scale the sprite
 
+        // Initialise buttons 
+        enter = new Button(1100,700,120,100,20,this->font,"Generate",Color(199,214,255,200),Color(135,147,176,255),Color(98,115,140,200));
+
         while (window.isOpen()) {
             Event event;
             while (window.pollEvent(event)) {
                 // Handle close event
                 if (event.type == Event::Closed) {
                     window.close();
+                }
+
+                Vector2f mousePos = window.mapPixelToCoords(Mouse::getPosition(window));
+                enter->updateButton(mousePos);
+
+                // Transition to reference type page when adelaideUni button is pressed
+                if (enter->getButtonState() == true) {
+                    window.close();
+                    enterPage generatedPage;
+                    generatedPage.displayCitation();
                 }
 
                 // Handle mouse clicks for selection
@@ -430,12 +445,14 @@ public:
             window.draw(monthViewedText);
             window.draw(dayViewedText);
 
+           enter->render(&window);
+
             // Display everything on the window
             window.display();
         }
     }
 
-    ~WebsiteInput() {}
+    ~WebsiteInput() {delete enter;}
 };
 
 #endif

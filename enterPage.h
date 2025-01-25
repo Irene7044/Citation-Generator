@@ -1,23 +1,16 @@
-#ifndef REFERENCETYPE
-#define REFERENCETYPE
+#ifndef ENTERPAGE
+#define ENTERPAGE
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include "Button.h"
-#include "WebsiteInput.h"
 
-
-using namespace sf;
-
-class ReferenceType {
+class enterPage {
     private:
+        Button* back;
         Font font;
-        Button* Website;
-        Button* Article;
-        Button* Image;
-        Button* Video;
 
     public:
-        ReferenceType() {
+        enterPage() {
             font.loadFromFile("./Font.ttf"); // load font file
 
 
@@ -27,8 +20,7 @@ class ReferenceType {
                     std::cout << "File failed to load" << std::endl;
             }
         }
-
-        void displayTypes() {
+        void displayCitation() {
             // Get the device screen size
             VideoMode desktop = VideoMode::getDesktopMode();
 
@@ -48,7 +40,11 @@ class ReferenceType {
             title.setCharacterSize(60); // set the character size
             title.setFillColor(Color::Black); // set the color
             title.setStyle(Text::Bold); // set the text style
-            title.setPosition(420,40);
+
+            // Center the title horizontally and vertically
+            FloatRect titleBounds = title.getGlobalBounds();
+            float titleX = (window.getSize().x - titleBounds.width) / 2.0f;
+            title.setPosition(titleX, 50);
 
             // Make background
             Texture homeBackground;
@@ -65,12 +61,6 @@ class ReferenceType {
             float scaleY = (1.0f * windowSize.y) / textureSize.y;
             background.setScale(scaleX, scaleY); //scale the sprite
 
-            // Initialising buttons
-            Website = new Button(500,200,220,90,30,this->font,"Website",Color(199,214,255,200),Color(135,147,176,255),Color(98,115,140,200));
-            Article = new Button(500,320,220,90,30,this->font,"Article",Color(199,214,255,200),Color(135,147,176,255),Color(98,115,140,200));
-            Image = new Button(500,440,220,90,30,this->font,"Image",Color(199,214,255,200),Color(135,147,176,255),Color(98,115,140,200));
-            Video = new Button(500,560,220,90,30,this->font,"Video",Color(199,214,255,200),Color(135,147,176,255),Color(98,115,140,200));
-
             while (window.isOpen()) {
                 Event event;
                 while (window.pollEvent(event)) {
@@ -80,19 +70,6 @@ class ReferenceType {
                     }
                 }
 
-                Vector2f mousePos = window.mapPixelToCoords(Mouse::getPosition(window));
-                Website->updateButton(mousePos);
-                Article->updateButton(mousePos);
-                Image->updateButton(mousePos);
-                Video->updateButton(mousePos);
-
-                // Transition to website input page when adelaideUni button is pressed
-                if (Website->getButtonState() == true) {
-                    window.close();
-                    WebsiteInput inputPage;
-                    inputPage.displayInput();
-                }
-
                 // Clear the window
                 window.clear(Color::White);
 
@@ -100,23 +77,12 @@ class ReferenceType {
                 window.draw(background);
                 window.draw(title);
                 
-                Website->render(&window);
-                Article->render(&window);
-                Image->render(&window);
-                Video->render(&window);
-
                 // Display everything on the window
                 window.display();
             }
         }
-
-        ~ReferenceType() {
-            delete Website;
-            delete Article;
-            delete Image;
-            delete Video;
-        }
-
+        ~enterPage() {}
+        
 };
 
 #endif

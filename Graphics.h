@@ -6,6 +6,7 @@
 #include "ReferenceType.h"
 #include "WebsiteInput.h"
 
+
 using namespace sf;
 
 class Graphics {
