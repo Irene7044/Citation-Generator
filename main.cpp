@@ -1,8 +1,10 @@
 #include "generateWebsite.cpp"
 #include "generateWebsite.hpp"
+#include "generateVideo.hpp"
+#include "generateVideo.cpp"
 
 int main() {
-    generateWebsite site;
+    generateVideo site;
     site.generate();
     return 0;
 }
