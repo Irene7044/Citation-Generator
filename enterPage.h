@@ -44,7 +44,7 @@ class enterPage {
             Text reference;
             reference.setFont(this->font); // set font
             reference.setString(citation); // set the citation string to display
-            reference.setCharacterSize(30); // set a smaller character size for the citation
+            reference.setCharacterSize(25); // set a smaller character size for the citation
             reference.setFillColor(Color::Black); // set the color
             reference.setStyle(Text::Regular); // regular style for the citation
 
