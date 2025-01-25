@@ -13,6 +13,8 @@ class Graphics {
     private:
         Font font;
         Button* adelaideUni;
+        Button* UniSA;
+        Button* Flinders;
 
     public:
         Graphics() {
@@ -69,7 +71,10 @@ class Graphics {
 
             // Initialising buttons
             float buttonX = (window.getSize().x - 290) / 2.0f;  // Center horizontally
-            adelaideUni = new Button(buttonX,280,290,130,27,this->font,"University of Adelaide",Color(199,214,255,200),Color(135,147,176,255),Color(98,115,140,200));
+            adelaideUni = new Button(buttonX,180,290,130,27,this->font,"University of Adelaide",Color(199,214,255,200),Color(135,147,176,255),Color(98,115,140,200));
+            UniSA = new Button(buttonX,360,290,130,27,this->font,"UniSA",Color(199,214,255,200),Color(135,147,176,255),Color(98,115,140,200));
+            Flinders = new Button(buttonX,540,290,130,27,this->font,"Flinders",Color(199,214,255,200),Color(135,147,176,255),Color(98,115,140,200));
+
 
             while (window.isOpen()) {
                 Event event;
@@ -82,9 +87,23 @@ class Graphics {
 
                 Vector2f mousePos = window.mapPixelToCoords(Mouse::getPosition(window));
                 adelaideUni->updateButton(mousePos);
+                UniSA->updateButton(mousePos);
+                Flinders->updateButton(mousePos);
 
                 // Transition to reference type page when adelaideUni button is pressed
                 if (adelaideUni->getButtonState() == true) {
+                    window.close();
+                    ReferenceType newPage;
+                    newPage.displayTypes();
+                }
+
+                if (UniSA->getButtonState() == true) {
+                    window.close();
+                    ReferenceType newPage;
+                    newPage.displayTypes();
+                }
+
+                if (Flinders->getButtonState() == true) {
                     window.close();
                     ReferenceType newPage;
                     newPage.displayTypes();
@@ -98,6 +117,8 @@ class Graphics {
                 window.draw(title);
                 
                 adelaideUni->render(&window);
+                UniSA->render(&window);
+                Flinders->render(&window);
 
                 // Display everything on the window
                 window.display();
@@ -105,7 +126,11 @@ class Graphics {
 
         }
 
-        ~Graphics() {delete adelaideUni;}
+        ~Graphics() {
+            delete adelaideUni;
+            delete UniSA;
+            delete Flinders;
+        }
 };
 
 #endif
