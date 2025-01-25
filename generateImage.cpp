@@ -1,9 +1,9 @@
 #pragma once
-#include "generateWebsite.hpp"
+#include "generateImage.hpp"
 
 using namespace std;
 
-string generateWebsite::generate() {
+string generateImage::generate() {
     cout << "First name: ";
     cin >> this->firstName;
 
@@ -76,13 +76,9 @@ string generateWebsite::generate() {
         this->dayViewed = "InvalidDay";
     }
 
-    cout << "Website name: ";
-    cin.ignore(numeric_limits<streamsize>::max(), '\n');
-    std::getline(cin, this->webName); 
-
 
     reference = "" + this->lastName + ", " + (this->firstName)[0] + " " + this->yearPublished + ", " 
-    + this->title + ", " + this->webName + ", viewed " + this->dayViewed + " " + this->monthViewed + " " + this->yearViewed + ", <"
+    + this->title + ", viewed " + this->dayViewed + " " + this->monthViewed + " " + this->yearViewed + ", <"
     + this->URL + ">.";
     cout << reference << endl;
     return reference;
@@ -91,4 +87,4 @@ string generateWebsite::generate() {
 
 
 // Author's family name, Initial(s) OR Authoring body Year, Title of webpage (in italics), 
-// Title of website, viewed Date Month Year, <URL>.
+// viewed Date Month Year, <URL>.

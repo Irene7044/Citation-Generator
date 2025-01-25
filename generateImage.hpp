@@ -3,7 +3,7 @@
 #include <string>
 using namespace std;
 
-class generateWebsite {
+class generateImage {
     public:
         string firstName;
         string lastName;
@@ -16,8 +16,6 @@ class generateWebsite {
         string yearViewed;
         string monthViewed;
         string dayViewed;
-
-        string webName;
 
         string reference;
 

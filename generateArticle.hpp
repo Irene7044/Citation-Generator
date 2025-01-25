@@ -3,13 +3,17 @@
 #include <string>
 using namespace std;
 
-class generateWebsite {
+class generateArticle {
     public:
         string firstName;
         string lastName;
         string title;
 
         string yearPublished;
+        string monthPublished;
+        string dayPublished;
+
+        string pageNum;
 
         string URL;
 

@@ -2,9 +2,13 @@
 #include "generateWebsite.hpp"
 #include "generateVideo.hpp"
 #include "generateVideo.cpp"
+#include "generateImage.hpp"
+#include "generateImage.cpp"
+#include "generateArticle.hpp"
+#include "generateArticle.cpp"
 
 int main() {
-    generateVideo site;
+    generateArticle site;
     site.generate();
     return 0;
 }

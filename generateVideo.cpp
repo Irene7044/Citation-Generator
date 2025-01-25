@@ -66,7 +66,7 @@ string generateVideo::generate() {
 
     cout << "Day published: ";
     cin >> this->dayPublished;
-    if (this->dayPublished <= "0" || this->dayPublished >= "31") {
+    if (this->dayPublished <= "0" || this->dayPublished >= "32") {
         this->dayPublished = "InvalidDay";
     }
 
@@ -122,7 +122,7 @@ string generateVideo::generate() {
 
     cout << "Day viewed: ";
     cin >> this->dayViewed;
-    if (this->dayViewed <= "0" || this->dayViewed >= "31") {
+    if (this->dayViewed <= "0" || this->dayViewed >= "32") {
         this->dayViewed = "InvalidDay";
     }
 
@@ -134,6 +134,3 @@ string generateVideo::generate() {
     
 }
 
-
-// Author's family name, Initial(s) OR Authoring body Year, Title of webpage (in italics), 
-// Title of website, viewed Date Month Year, <URL>.
