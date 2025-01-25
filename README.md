@@ -1,2 +1,2 @@
 # Citation-Generator
-Generates citations for Adelaide Univeristy, UniSA, and Flinders citation styles
+Generates proper citations for students at the University of Adelaide (UofA), the University of South Australia (UniSA), and Flinders University.
