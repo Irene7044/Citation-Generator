@@ -5,6 +5,7 @@
 #include <iostream>
 #include "Button.h"
 #include "enterPage.h"
+#include "generateWebsite.h"
 
 class WebsiteInput {
 private:
@@ -92,6 +93,7 @@ public:
         titleText.setFont(font);
         titleText.setCharacterSize(30);
         titleText.setFillColor(Color::Black);
+        titleText.setStyle(Text::Regular);
 
         yearPublishedText.setFont(font);
         yearPublishedText.setCharacterSize(30);
@@ -245,6 +247,7 @@ public:
     }
 
     void displayInput() {
+        generateWebsite curr_reference;
         // Get the device screen size
         VideoMode desktop = VideoMode::getDesktopMode();
 
@@ -298,9 +301,65 @@ public:
 
                 // Transition to reference type page when adelaideUni button is pressed
                 if (enter->getButtonState() == true) {
+                    curr_reference.firstName = firstNameInput;
+                    curr_reference.lastName = lastNameInput;
+                    curr_reference.title = titleInput;
+                    curr_reference.webName = websiteNameInput;
+                    curr_reference.yearPublished = yearPublished;
+                    curr_reference.URL = urlInput;
+                    curr_reference.yearViewed = yearViewed;
+                    curr_reference.monthViewed = monthViewed;
+                    curr_reference.dayViewed = dayViewed;
+
+                    if (curr_reference.monthViewed == "1") {
+                        curr_reference.monthViewed = "January";
+                    }
+                    else if (curr_reference.monthViewed == "2") {
+                        curr_reference.monthViewed = "February";
+                    }
+                    else if (curr_reference.monthViewed == "3") {
+                        curr_reference.monthViewed = "March";
+                    }
+                    else if (curr_reference.monthViewed == "4") {
+                        curr_reference.monthViewed = "April";
+                    }
+                    else if (curr_reference.monthViewed == "5") {
+                        curr_reference.monthViewed = "May";
+                    }
+                    else if (curr_reference.monthViewed == "6") {
+                        curr_reference.monthViewed = "June";
+                    }
+                    else if (curr_reference.monthViewed == "7") {
+                        curr_reference.monthViewed = "July";
+                    }
+                    else if (curr_reference.monthViewed == "8") {
+                        curr_reference.monthViewed = "August";
+                    }
+                    else if (curr_reference.monthViewed == "9") {
+                        curr_reference.monthViewed = "September";
+                    }
+                    else if (curr_reference.monthViewed == "10") {
+                        curr_reference.monthViewed = "October";
+                    }
+                    else if (curr_reference.monthViewed == "11") {
+                        curr_reference.monthViewed = "November";
+                    }
+                    else if (curr_reference.monthViewed == "12") {
+                        curr_reference.monthViewed = "December";
+                    }
+                    else {
+                        curr_reference.monthViewed = "InvalidMonth";
+                    } 
+
+                    if (curr_reference.dayViewed <= "0" || curr_reference.dayViewed >= "32") {
+                        curr_reference.dayViewed = "InvalidDay";
+                    }
+
+                    String citation = curr_reference.generate();
+            
                     window.close();
                     enterPage generatedPage;
-                    generatedPage.displayCitation();
+                    generatedPage.displayCitation(citation);
                 }
 
                 // Handle mouse clicks for selection

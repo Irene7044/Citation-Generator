@@ -2,7 +2,7 @@
 TARGET = Citation
 
 # source files
-SOURCES = main.cpp Button.cpp Button.h Graphics.h ReferenceType.h WebsiteInput.h enterPage.h
+SOURCES = main.cpp Button.cpp Button.h Graphics.h ReferenceType.h WebsiteInput.h enterPage.h generateWebsite.h generateWebsite.cpp
 
 # SOURCES (With test files) = PlayerTest.h HighScoreTest.h BootsTest.h HotAirBalloonTest.h RocketTest.h Level1Test.h Level2Test.h Level3Test.h NormalPlatTest.h BrokenPlatTest.h PlatformTest.h mainTest.cpp
 

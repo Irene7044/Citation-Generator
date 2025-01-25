@@ -68,8 +68,8 @@ class Graphics {
             background.setScale(scaleX, scaleY); //scale the sprite
 
             // Initialising buttons
-            float buttonX = (window.getSize().x - 220) / 2.0f;  // Center horizontally
-            adelaideUni = new Button(buttonX,280,220,90,20,this->font,"University of Adelaide",Color(199,214,255,200),Color(135,147,176,255),Color(98,115,140,200));
+            float buttonX = (window.getSize().x - 290) / 2.0f;  // Center horizontally
+            adelaideUni = new Button(buttonX,280,290,130,27,this->font,"University of Adelaide",Color(199,214,255,200),Color(135,147,176,255),Color(98,115,140,200));
 
             while (window.isOpen()) {
                 Event event;
