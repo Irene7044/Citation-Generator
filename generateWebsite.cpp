@@ -1,5 +1,5 @@
 #pragma once
-#include "generateWebsite.hpp"
+#include "generateWebsite.h"
 
 using namespace std;
 

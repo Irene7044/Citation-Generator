@@ -1,5 +1,5 @@
 #pragma once
-#include "generateArticle.hpp"
+#include "generateArticle.h"
 
 using namespace std;
 

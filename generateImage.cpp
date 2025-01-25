@@ -1,5 +1,5 @@
 #pragma once
-#include "generateImage.hpp"
+#include "generateImage.h"
 
 using namespace std;
 

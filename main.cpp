@@ -1,10 +1,10 @@
 #include "generateWebsite.cpp"
-#include "generateWebsite.hpp"
-#include "generateVideo.hpp"
+#include "generateWebsite.h"
+#include "generateVideo.h"
 #include "generateVideo.cpp"
-#include "generateImage.hpp"
+#include "generateImage.h"
 #include "generateImage.cpp"
-#include "generateArticle.hpp"
+#include "generateArticle.h"
 #include "generateArticle.cpp"
 
 int main() {

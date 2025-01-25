@@ -1,5 +1,5 @@
 #pragma once
-#include "generateVideo.hpp"
+#include "generateVideo.h"
 
 using namespace std;
 
